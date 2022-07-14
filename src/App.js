@@ -3,18 +3,16 @@ import './App.css';
 import { createTheme, ThemeProvider } from '@mui/system';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import SideNav from './components/SideNav';
 
 const theme = createTheme({
     palette: {
         type: 'light',
         primary: {
-          main: '#26a69a',
+          main: '#64dd17',
         },
         secondary: {
-          main: '#f50057',
-        },
-        success: {
-          main: '#4caf50',
+          main: '#250c82',
         },
       },
       props: {
@@ -29,9 +27,13 @@ function App() {
    <ThemeProvider theme={theme}>
       <Router>
         <Header />
+
+        <SideNav />
+
         <Routes>
             <Route/>
         </Routes>
+
       </Router>
     </ThemeProvider>
    )
