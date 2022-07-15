@@ -24,7 +24,7 @@ export default function Header() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className={`sm:mx-auto sm:px-6 ${window.location.pathname === '/' ? 'md:ml-[240px]' :  'mx-auto'}`}>
+          <div className={`sm:mx-auto sm:px-6 h-24 py-4 ${window.location.pathname === '/' ? 'md:ml-[240px]' :  'mx-auto'}`}>
 
             <div className="relative flex items-center justify-between h-16">
 

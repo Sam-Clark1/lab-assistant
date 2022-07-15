@@ -32,7 +32,7 @@ export default function SideNav() {
         anchor="left"
         className='hidden md:block'
       >
-        <Toolbar />
+        <Toolbar className='my-4'/>
         <Divider />
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
