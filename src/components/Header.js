@@ -11,6 +11,7 @@ import DrawerNav from "./MobileNav";
 
 const navigation = [
   { name: 'Home', href: '/' },
+  { name: 'Calculations', href: '/calculations'},
   { name: 'About', href: '/about' },
 ]
 
@@ -20,10 +21,10 @@ function classNames(...classes) {
 export default function Header() {
     return (
         
-    <Disclosure as="nav" className="bg-primary">
+    <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="lg:w-[max(calc(100%-240px))] lg:ml-[240px] sm:mx-auto sm:px-6">
+          <div className=" md:ml-[240px] sm:mx-auto sm:px-6">
 
             <div className="relative flex items-center justify-between h-16">
 

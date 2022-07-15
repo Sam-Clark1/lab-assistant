@@ -1,26 +1,29 @@
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { Box } from '@mui/material';
+
 import Header from './components/Header';
 import SideNav from './components/SideNav';
 import Footer from './components/Footer';
-import Test from './components/Test';
+import MainPage from './components/MainPage';
+
 function App() {
    return (
       <Router>
-        <div className='flex-col justify-start min-h-screen'>
+        <div className='flex-col justify-start min-h-screen bg-primary'>
           <Header />
-            <div className='container'>
-              <SideNav />
-             
-              <Routes>
+          <SideNav />
 
-              </Routes>
-              <Routes>
-                  <Route/>
-              </Routes>
+              <Box component="main" sx={{ p: 3 }} className="md:ml-[340px] md:mr-[100px] min-h-[88vh]">
+                
+                <Routes>
+                    <Route path='/' element={<MainPage/>} />
+                </Routes>
 
-            </div>
+              </Box>
+
           <Footer />
         </div>
       </Router>
