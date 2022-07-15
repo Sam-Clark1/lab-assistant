@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useRoutes} from 'react-router-dom';
 
 import { Box } from '@mui/material';
 
@@ -15,15 +15,11 @@ function App() {
         <div className='flex-col justify-start min-h-screen bg-primary'>
           <Header />
           <SideNav />
-
               <Box component="main" sx={{ p: 3 }} className="md:ml-[340px] md:mr-[100px] min-h-[88vh]">
-                
                 <Routes>
                     <Route path='/' element={<MainPage/>} />
                 </Routes>
-
               </Box>
-
           <Footer />
         </div>
       </Router>
