@@ -1,41 +1,29 @@
 import './App.css';
 
-import { createTheme, ThemeProvider } from '@mui/system';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SideNav from './components/SideNav';
-
-const theme = createTheme({
-    palette: {
-        type: 'light',
-        primary: {
-          main: '#64dd17',
-        },
-        secondary: {
-          main: '#250c82',
-        },
-      },
-      props: {
-        MuiButtonBase: {
-          disableRipple: true,
-        },
-      },
-});
-
+import Footer from './components/Footer';
+import Test from './components/Test';
 function App() {
    return (
-   <ThemeProvider theme={theme}>
       <Router>
-        <Header />
+        <div className='flex-col justify-start min-h-screen'>
+          <Header />
+            <div className='container'>
+              <SideNav />
+             
+              <Routes>
 
-        <SideNav />
+              </Routes>
+              <Routes>
+                  <Route/>
+              </Routes>
 
-        <Routes>
-            <Route/>
-        </Routes>
-
+            </div>
+          <Footer />
+        </div>
       </Router>
-    </ThemeProvider>
    )
 }
 
