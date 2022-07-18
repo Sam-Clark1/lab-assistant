@@ -24,23 +24,24 @@ export default function Header() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className={`sm:mx-auto sm:px-6 h-24 py-4 ${window.location.pathname === '/' ? 'md:ml-[240px]' :  'mx-auto'}`}>
+          <div className={`sm:mx-auto sm:px-6 h-24 py-4 ${window.location.pathname === '/' ? 'md:ml-[240px]' :  'mx-auto'} bg-menu`}>
 
             <div className="relative flex items-center justify-between h-16">
 
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                 <a href="#">
                   <DrawerNav />
                 </a>
               </div>
 
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
+                
+                <div className="flex-shrink-0 flex items-center sm:hidden">
                     <Link to='/'>
-                        <BeakerIcon className="h-8 w-8 text-secondary" aria-hidden="true" />
+                        <BeakerIcon className="h-8 w-8 text-accent" aria-hidden="true" />
                     </Link>
                     <Link to='/'>
-                        <h1 className="text-2xl font-sans text-secondary ml-2">
+                        <h1 className="text-2xl font-sans text-1text ml-2">
                             lab assistant
                         </h1>
                     </Link>
@@ -52,7 +53,7 @@ export default function Header() {
                       <Link to={item.href} key={item.name}>
                         <div
                             className={classNames(
-                            'text-secondary hover:bg-secondary hover:text-white',
+                            'text-1text hover:bg-card',
                             'ml-3 px-3 py-2 rounded-md text-lg font-medium'
                             )}
                         >
@@ -65,7 +66,7 @@ export default function Header() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   
-                  <a href="https://github.com/Sam-Clark1/lab-assistant" className="text-secondary hover:text-white" target="_blank" rel='noreferrer'>
+                  <a href="https://github.com/Sam-Clark1/lab-assistant" className="text-1text hover:text-accent" target="_blank" rel='noreferrer'>
                     <GitHubIcon sx={{fontSize:'2.5rem', }} />
                   </a>
 

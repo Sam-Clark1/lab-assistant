@@ -12,7 +12,7 @@ import MainPage from './components/MainPage';
 function App() {
    return (
       <Router>
-        <div className='flex-col justify-start min-h-screen bg-primary'>
+        <div className='flex-col justify-start min-h-screen'>
           <Header />
           <SideNav />
               <Box component="main" sx={{ p: 3 }} className="md:ml-[340px] md:mr-[100px] min-h-[88vh]">

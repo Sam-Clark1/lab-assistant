@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 
 export default function MainPage() {
 return (
-    <div className="text-secondary">
+    <div className="text-1text">
         <Typography paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non

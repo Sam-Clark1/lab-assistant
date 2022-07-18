@@ -37,7 +37,8 @@ export default function MobileNav() {
 
       const list = (anchor) => (
         <Box
-          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, backgroundColor: 'white', height:'100%' }}
+          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, height:'100%'}}
+          className='bg-menu'
           role="presentation"
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
@@ -47,7 +48,7 @@ export default function MobileNav() {
                 <ListItem key={text} disablePadding>
                     <Link to={route} className='drawer-nav-link'>
                         <ListItemButton>
-                            <ListItemText sx={{color: 'rgb(9, 13, 62)'}} primary={text} />
+                            <ListItemText sx={{color: '#FFFFFF'}} primary={text} />
                         </ListItemButton>
                     </Link>
                 </ListItem>
@@ -61,7 +62,7 @@ export default function MobileNav() {
         {['left'].map((anchor) => (
             <Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>
-                    <MenuIcon className='text-secondary' sx={{fontSize:'2.5rem'}}/>
+                    <MenuIcon className='text-1text active:bg-card' sx={{fontSize:'2.5rem'}}/>
                 </Button>
                 <Drawer
                     anchor={anchor}
