@@ -21,12 +21,12 @@ function classNames(...classes) {
 export default function Header() {
     return (
         
-    <Disclosure as="nav">
+    <Disclosure as="nav" className='sticky top-0'>
       {({ open }) => (
         <>
-          <div className={`sm:mx-auto sm:px-6 h-24 py-4 ${window.location.pathname === '/' ? 'md:ml-[240px]' :  'mx-auto'} bg-menu`}>
+          <div className='sm:mx-auto sm:px-6 h-24 py-4 bg-menu'>
 
-            <div className="relative flex items-center justify-between h-16">
+            <div className="relative flex items-center justify-between h-16 ">
 
               <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                 <a href="#">
@@ -36,7 +36,7 @@ export default function Header() {
 
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 
-                <div className="flex-shrink-0 flex items-center sm:hidden">
+                <div className="flex-shrink-0 flex items-center">
                     <Link to='/'>
                         <BeakerIcon className="h-8 w-8 text-accent" aria-hidden="true" />
                     </Link>

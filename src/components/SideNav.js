@@ -12,15 +12,11 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
-import { Link } from "react-router-dom";
-import { BeakerIcon} from '@heroicons/react/outline'
-
 const drawerWidth = 240;
 
 export default function SideNav() {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+    <Box sx={{ display: 'flex'}}>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -29,42 +25,17 @@ export default function SideNav() {
             width: drawerWidth,
             boxSizing: 'border-box',
             backgroundColor:'#242424',
-            color: '#FFFFFF'
+            color: '#FFFFFF',
+            mt:'6rem'
           },
         }}
         variant="permanent"
         anchor="left"
-        className='hidden md:block'
+        className='hidden md:block '
       >
-        <Toolbar className='my-4'>
-        <div className="flex-shrink-0 flex items-center">
-                    <Link to='/'>
-                        <BeakerIcon className="h-8 w-8 text-accent" aria-hidden="true" />
-                    </Link>
-                    <Link to='/'>
-                        <h1 className="text-2xl font-sans text-1text ml-2">
-                            lab assistant
-                        </h1>
-                    </Link>
-                </div>
-        </Toolbar>
 
-        <Divider className='bg-menu'/>
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding className='hover:bg-card'>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider className='bg-card'/>
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding className='hover:bg-card'>
               <ListItemButton>
                 <ListItemIcon>
