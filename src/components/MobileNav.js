@@ -5,7 +5,7 @@ import { Box,
         List, 
         ListItem, 
         ListItemButton, 
-        ListItemText } from '@mui/material'
+        ListItemText} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 
@@ -14,18 +14,12 @@ export default function MobileNav() {
         left: false
       });
 
-      const menuArray = (
-        [
-            {
-                route: '/',
-                text: 'Home'
-            },
-            {
-                route: '/about',
-                text: 'About'
-            }
-        ]
-    ); 
+    const menuArray = [
+        {route: '/',text: 'Home'},
+        {route: 'calculations',text: 'Calculations'},
+        {route: '/about',text: 'About'},
+        {route: 'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'}
+    ]; 
 
       const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

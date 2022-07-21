@@ -1,15 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import RVACalc from "./calculations/RVACalc";
 
-import { Card, CardActions, CardContent, Button, Typography } from "@mui/material";
-
-export default function Calculations(props) {
-    return (
-        <Card sx={{minWidth:1}}>
-            <CardContent>
-                <Typography>
-                    
-                </Typography>
-            </CardContent>
-        </Card>
-    )
+export default function Calculations() {
+    const params = useParams();
+    const {calc} = params;
+    if (calc === 'RVA Endpoint Viscosity') {
+        return <RVACalc />
+    }
 }

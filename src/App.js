@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import MainPage from './components/MainPage';
+import CalcPage from './components/CalcPage';
 import Banner from './components/Banner';
 import Calculations from './components/Calculation';
 
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Banner/>}/>
             <Route path='about'/>
-            <Route path='calculations' element={<MainPage/>}>
+            <Route path='calculations' element={<CalcPage/>}>
               <Route path=':calc' element={<Calculations/>}/>
             </Route>    
           </Routes>

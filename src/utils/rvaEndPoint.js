@@ -32,6 +32,4 @@ for(i=0; i <= numberOfSamples-1; i++) {
 };
 
 return resultsString
-}
-
-rvaEndPoint()
+};

@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
+// import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import ListItemText from '@mui/material/ListItemText'
 
 const drawerWidth = 240;
+const navArry = [
+  {name:'RVA Endpoint Viscosity'},
+  {name: 'Density'},
+  {name: 'Dilution'}
+]
 
 export default function SideNav() {
   return (
@@ -33,15 +36,14 @@ export default function SideNav() {
         >
 
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem key={text} disablePadding className='hover:bg-card'>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
+            {navArry.map((item, index) => (
+              <Link to={`${item.name}`} key={item.name}>
+                <ListItem disablePadding className='hover:bg-card'>
+                    <ListItemButton disableRipple>
+                      <ListItemText primary={item.name} />
+                    </ListItemButton>
+                </ListItem>
+              </Link>
             ))}
           </List>
         </Drawer>
