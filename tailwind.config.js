@@ -12,6 +12,7 @@ module.exports = {
         '1text':'#FFFFFF',
         '2text':'#AAAAAA',
         'accent':'#64dd17',
+        'error': '#ff0000'
       }
     },
   },

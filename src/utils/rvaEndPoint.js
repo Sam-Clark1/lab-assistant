@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
-export function rvaEndPoint(minutesPerRun, numberOfSamples) {
-
+ export function rvaEndPoint(minutesPerRun, numberOfSamples) {
 const timeElapsed = 60 * minutesPerRun;
 
 let time = 3;
@@ -26,7 +25,7 @@ while(time < timeElapsed) {
  
     cellNumber++;
 };
- 
+let i = 0
 for(i=0; i <= numberOfSamples-1; i++) {
     resultsString = resultsString + `=D${(cellNumber+1)+(cellNumber*i)}\n`
 };
