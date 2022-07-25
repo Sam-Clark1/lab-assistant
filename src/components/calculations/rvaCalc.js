@@ -12,26 +12,8 @@ export default function RVACalc() {
 
 
     const handleChange = event => {
-        if (event.target.name === 'minutes') {
-            if (!event.target.value.length) {
-                setErrorMessage(`${event.target.name} are required`)
-            } else {
-                setErrorMessage('')
-            }
-        } 
-        
-        if (event.target.name === 'samples') {
-            if (!event.target.value.length) {
-                setErrorMessage(`${event.target.name} are required`)
-            } else {
-                setErrorMessage('')
-            }
-        }
-        
-        if (!errorMessage) {
-            setFormState({ ...formState, [event.target.name]: event.target.value })
-        }
-    }
+        setFormState({ ...formState, [event.target.name]: event.target.value })
+    };
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -39,8 +21,7 @@ export default function RVACalc() {
             setErrorMessage('Inputs can\'t be blank.')
         } else {
             setResultsState(rvaEndPoint(minutes, samples))
-            setFormState({minutes:'', samples:''})
-            setFormState({ ...formState})
+            setErrorMessage('')
         }
     };
     
@@ -107,7 +88,7 @@ export default function RVACalc() {
                             <label className="block text-sm font-medium text-2text whitespace-nowrap">
                                 Copy to Clipboard
                             </label>
-                            <Button variant="contained" type="submit" 
+                            <Button variant="contained" 
                             sx={{backgroundColor:'#64dd17', color:'#3D3D3D', width:'7rem', ':hover':{backgroundColor:'#3D3D3D', color:'#64dd17',  boxShadow:10}}} 
                             disableRipple
                             onClick={handleCopy}>{isCopied ? 'Copied!' : 'Copy'}</Button>
