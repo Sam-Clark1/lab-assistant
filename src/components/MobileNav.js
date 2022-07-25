@@ -18,7 +18,9 @@ export default function MobileNav() {
         {route: '/',text: 'Home'},
         {route: 'calculations',text: 'Calculations'},
         {route: '/about',text: 'About'},
-        {route: 'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'}
+        {route: 'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
+        {route: 'calculations/Grams', text:'Grams'},
+        {route:'calculations/Liters', text:'Liters'}
     ]; 
 
       const toggleDrawer = (anchor, open) => (event) => {

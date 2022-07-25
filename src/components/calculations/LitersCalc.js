@@ -1,28 +1,28 @@
 import React, {useState} from "react";
 import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
-import { gramsToMilligrams, milligramsToGrams } from "../../utils/grams";
+import {litersToMilliliters, millilitersToLiters} from '../../utils/liters';
 
-export default function GramsCalc() {
-    const [grams1, setGrams1] = useState('');
-    const [mg2, setMg2] = useState('');
+export default function LitersCalc() {
+    const [liters1, setLiters1] = useState('');
+    const [ml2, setmL2] = useState('');
     const [gramsToMilli, setGramsToMilli] = useState('');
     const [milliToGrams, setMilliToGrams] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = event => {
-        if (event.target.name === 'g1') {
-            setGrams1(event.target.value)
+        if (event.target.name === 'l1') {
+            setLiters1(event.target.value)
         } 
         
-        if (event.target.name === 'mg2') {
-            setMg2(event.target.value)
+        if (event.target.name === 'ml2') {
+            setmL2(event.target.value)
         } 
     }
 
     const handleSubmit = event => {
         event.preventDefault();
-        if (grams1.length > 0) {
-            setGramsToMilli(gramsToMilligrams(grams1))
+        if (liters1.length > 0) {
+            setGramsToMilli(litersToMilliliters(liters1))
             setErrorMessage('')
         } else {
             setErrorMessage('Please enter a valid input.')
@@ -31,8 +31,8 @@ export default function GramsCalc() {
 
     const handleSubmit2 = event => {
         event.preventDefault();
-        if (mg2.length > 0) {
-            setMilliToGrams(milligramsToGrams(mg2))
+        if (ml2.length > 0) {
+            setMilliToGrams(millilitersToLiters(ml2))
             setErrorMessage('')
         } else {
             setErrorMessage('Please enter a valid input.')
@@ -43,12 +43,12 @@ export default function GramsCalc() {
         <>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
-                Grams
+                Liters
             </h1>
         </div>
         <div className="mb-7">
             <p className="text-1text text-sm text-center lg:px-10 md:text-base">
-                These calculations allow you to convert grams to milligrams and vice versa. 1 gram is equal to 1000 milligrams. 
+                These calculations allow you to convert liters to milliliters and vice versa. 1 liter is equal to 1000 milliliters. 
             </p>
         </div>
             <div className="bg-card p-4 pb-6 shadow-lg shadow-black flex justify-center lg:justify-none rounded">
@@ -56,10 +56,10 @@ export default function GramsCalc() {
                     <div className="grid 2xl:grid-cols-3 2xl:gap-20 grid-cols-1">
                         <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Grams
+                                Liters
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="g1" className="bg-1text rounded" defaultValue={grams1} onBlur={handleChange}/>
+                                <TextField id="outlined-basic"  variant="outlined" name="l1" className="bg-1text rounded" defaultValue={liters1} onBlur={handleChange}/>
                             </div>
                         </div>
                         <div className="my-auto mx-auto">
@@ -72,7 +72,7 @@ export default function GramsCalc() {
                         </div>
                         <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Milligrams
+                                Milliliters
                             </label>
                             <div className="relative rounded-md shadow-sm">
                                 <TextareaAutosize defaultValue={gramsToMilli} minRows={2} maxRows={2} readOnly className="rounded"/>
@@ -86,10 +86,10 @@ export default function GramsCalc() {
                     <div className="grid 2xl:grid-cols-3 2xl:gap-20 grid-cols-1">
                     <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Milligrams
+                                Milliliters
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="mg2" className="bg-1text rounded" defaultValue={mg2} onBlur={handleChange}/>
+                                <TextField id="outlined-basic"  variant="outlined" name="ml2" className="bg-1text rounded" defaultValue={ml2} onBlur={handleChange}/>
                             </div>
                         </div>
                         <div className="my-auto mx-auto">
@@ -103,7 +103,7 @@ export default function GramsCalc() {
                         </div>
                         <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Grams
+                                Liters
                             </label>
                             <div className="relative rounded-md shadow-sm">
                                 <TextareaAutosize defaultValue={milliToGrams} minRows={2} maxRows={2} readOnly className="rounded"/>

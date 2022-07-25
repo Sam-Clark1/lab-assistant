@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom'
 
 export default function Banner() {
     return (
@@ -20,18 +20,20 @@ export default function Banner() {
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4 mt-8">
-                        <a className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring" href="/get-started">
-                        Get Started
-                        </a>
-
-                        <a className="block w-full px-12 py-3 text-sm font-medium text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring" href="/about">
-                        Learn More
-                        </a>
+                        <Link to={'calculations'}>
+                            <div className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring">
+                            Get Started
+                            </div>
+                        </Link>
+                        <Link to={'about'}>
+                            <div className="block w-full px-12 py-3 text-sm font-medium text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring">
+                            Learn More
+                            </div>
+                        </Link>
                     </div>
                     </div>
                 </div>
             </section>
-            
         </div>
     )
 }
