@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText'
 const drawerWidth = 240;
 const navArry = [
   {name:'RVA Endpoint Viscosity'},
+  {name: 'Grams'},
   {name: 'Density'},
   {name: 'Dilution'}
 ]

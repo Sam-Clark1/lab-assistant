@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import { TextField, Button, TextareaAutosize, Alert, List } from "@mui/material";
+import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { rvaEndPoint } from "../../utils/rvaEndPoint";
 
 export default function RVACalc() {
     const [resultsState, setResultsState] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [isCopied, setIsCopied] = useState(false)
+    const [isCopied, setIsCopied] = useState(false);
     
     const [formState, setFormState] = useState({minutes:'', samples:''});
     const {minutes, samples} = formState;
@@ -60,7 +60,7 @@ export default function RVACalc() {
             </h1>
         </div>
         <div className="mb-7">
-            <p className="text-1text text-sm lg:px-10 md:text-base">
+            <p className="text-1text text-sm text-center lg:px-10 md:text-base">
                 This calculation is used to find the endpoint viscosities of samples run on a Perten Instruments RVA 4500/4800 from the data it produces. 
                 Using this calculation saves you time by not having to go through thousands of cells to find the data you are looking for. 
                 To make use of this, make sure you have copied your data from the RVA software to a Microsoft Excel Spreadsheet. 
