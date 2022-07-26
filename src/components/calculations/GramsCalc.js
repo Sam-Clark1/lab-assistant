@@ -3,7 +3,7 @@ import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { gramsToMilligrams, milligramsToGrams } from "../../utils/grams";
 
 export default function GramsCalc() {
-    const [grams1, setGrams1] = useState('');
+    const [g1, setG1] = useState('');
     const [mg2, setMg2] = useState('');
     const [gramsToMilli, setGramsToMilli] = useState('');
     const [milliToGrams, setMilliToGrams] = useState('');
@@ -11,18 +11,18 @@ export default function GramsCalc() {
 
     const handleChange = event => {
         if (event.target.name === 'g1') {
-            setGrams1(event.target.value)
+            setG1(event.target.value)
         } 
         
         if (event.target.name === 'mg2') {
             setMg2(event.target.value)
         } 
-    }
+    };
 
     const handleSubmit = event => {
         event.preventDefault();
-        if (grams1.length > 0) {
-            setGramsToMilli(gramsToMilligrams(grams1))
+        if (g1.length > 0) {
+            setGramsToMilli(gramsToMilligrams(g1))
             setErrorMessage('')
         } else {
             setErrorMessage('Please enter a valid input.')
@@ -59,7 +59,7 @@ export default function GramsCalc() {
                                 Grams
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="g1" className="bg-1text rounded" defaultValue={grams1} onBlur={handleChange}/>
+                                <TextField id="outlined-basic"  variant="outlined" name="g1" className="bg-1text rounded" defaultValue={g1} onBlur={handleChange}/>
                             </div>
                         </div>
                         <div className="my-auto mx-auto">
@@ -75,7 +75,7 @@ export default function GramsCalc() {
                                 Milligrams
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={gramsToMilli} minRows={2} maxRows={2} readOnly className="rounded"/>
+                                <TextareaAutosize defaultValue={gramsToMilli} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ export default function GramsCalc() {
                                 Grams
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={milliToGrams} minRows={2} maxRows={2} readOnly className="rounded"/>
+                                <TextareaAutosize defaultValue={milliToGrams} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
                             </div>
                         </div>
                     </div>
@@ -115,4 +115,4 @@ export default function GramsCalc() {
             <Alert severity="error" className={`relative mt-10  ${errorMessage.length === 0 ? 'invisible' : ''}`} onClose={() => {setErrorMessage('')}}>{errorMessage}</Alert>
         </>
     )
-}
+};

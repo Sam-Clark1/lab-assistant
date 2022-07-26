@@ -3,7 +3,7 @@ import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import {litersToMilliliters, millilitersToLiters} from '../../utils/liters';
 
 export default function LitersCalc() {
-    const [liters1, setLiters1] = useState('');
+    const [l1, setL1] = useState('');
     const [ml2, setmL2] = useState('');
     const [gramsToMilli, setGramsToMilli] = useState('');
     const [milliToGrams, setMilliToGrams] = useState('');
@@ -11,18 +11,18 @@ export default function LitersCalc() {
 
     const handleChange = event => {
         if (event.target.name === 'l1') {
-            setLiters1(event.target.value)
+            setL1(event.target.value)
         } 
         
         if (event.target.name === 'ml2') {
             setmL2(event.target.value)
         } 
-    }
+    };
 
     const handleSubmit = event => {
         event.preventDefault();
-        if (liters1.length > 0) {
-            setGramsToMilli(litersToMilliliters(liters1))
+        if (l1.length > 0) {
+            setGramsToMilli(litersToMilliliters(l1))
             setErrorMessage('')
         } else {
             setErrorMessage('Please enter a valid input.')
@@ -59,7 +59,7 @@ export default function LitersCalc() {
                                 Liters
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="l1" className="bg-1text rounded" defaultValue={liters1} onBlur={handleChange}/>
+                                <TextField id="outlined-basic"  variant="outlined" name="l1" className="bg-1text rounded" defaultValue={l1} onBlur={handleChange}/>
                             </div>
                         </div>
                         <div className="my-auto mx-auto">
@@ -75,7 +75,7 @@ export default function LitersCalc() {
                                 Milliliters
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={gramsToMilli} minRows={2} maxRows={2} readOnly className="rounded"/>
+                                <TextareaAutosize defaultValue={gramsToMilli} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ export default function LitersCalc() {
                                 Liters
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={milliToGrams} minRows={2} maxRows={2} readOnly className="rounded"/>
+                                <TextareaAutosize defaultValue={milliToGrams} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
                             </div>
                         </div>
                     </div>
@@ -115,4 +115,4 @@ export default function LitersCalc() {
             <Alert severity="error" className={`relative mt-10  ${errorMessage.length === 0 ? 'invisible' : ''}`} onClose={() => {setErrorMessage('')}}>{errorMessage}</Alert>
         </>
     )
-}
+};

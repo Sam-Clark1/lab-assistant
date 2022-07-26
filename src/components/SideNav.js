@@ -12,7 +12,8 @@ const drawerWidth = 240;
 const navArry = [
   {name:'RVA Endpoint Viscosity'},
   {name: 'Grams'},
-  {name: 'Liters'}
+  {name: 'Liters'},
+  {name: 'Enzyme Amount'}
 ]
 
 export default function SideNav() {

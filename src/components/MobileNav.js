@@ -20,7 +20,8 @@ export default function MobileNav() {
         {route: '/about',text: 'About'},
         {route: 'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
         {route: 'calculations/Grams', text:'Grams'},
-        {route:'calculations/Liters', text:'Liters'}
+        {route:'calculations/Liters', text:'Liters'},
+        {route:'calculations/Enzyme Amount', text:'Enzyme Amount'}
     ]; 
 
       const toggleDrawer = (anchor, open) => (event) => {

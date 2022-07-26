@@ -81,7 +81,7 @@ export default function RVACalc() {
                                 Viscosity Endpoints
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={resultsState} minRows={2} maxRows={2} readOnly className="rounded"/>
+                                <TextareaAutosize defaultValue={resultsState} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
                             </div>
                         </div>
                         <div className="my-auto mx-auto">
