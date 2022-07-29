@@ -10,6 +10,10 @@ export default function RVACalc() {
     const [formState, setFormState] = useState({minutes:'', samples:''});
     const {minutes, samples} = formState;
 
+    const inputArr = [
+        {label:'Number of Samples', value:samples, name:'samples'},
+        {label:'Number of Minutes Per Run', value:minutes, name:'minutes'}
+    ]
 
     const handleChange = event => {
         setFormState({ ...formState, [event.target.name]: event.target.value })
@@ -52,22 +56,16 @@ export default function RVACalc() {
             <div className="bg-card p-4 pb-6 shadow-lg shadow-black flex justify-center lg:justify-none rounded">
                 <form onSubmit={handleSubmit}>
                     <div className="grid 2xl:grid-cols-5 2xl:gap-20 grid-cols-1">
+                        {inputArr.map(e => (
                         <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Number of Samples
+                                {e.label}
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" type='number' name="samples" className="bg-1text rounded" defaultValue={samples} onBlur={handleChange}/>
+                                <TextField id="outlined-basic"  variant="outlined" type='number' name={e.name} className="bg-1text rounded" defaultValue={e.value} onBlur={handleChange}/>
                             </div>
                         </div>
-                        <div className="my-4 lg:my-0">
-                            <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Number of Minutes Per Run
-                            </label>
-                            <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" type='number' name="minutes" className="bg-1text rounded" defaultValue={minutes} onBlur={handleChange}/>
-                            </div>
-                        </div>
+                        ))}
                         <div className="my-auto mx-auto">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
                                 Submit Inputs

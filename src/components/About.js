@@ -12,15 +12,15 @@ export default function About() {
                     </div>
                     <div className="m-auto">
                         <p className="block text-lg font-medium text-1text">
-                            As a research associate in the biotechnology industry, I utilize chemistry conversions and fomulas in my everyday life. 
+                            My name is Sam and as a research associate in the biotechnology industry, I utilize chemistry conversions and fomulas in my everyday life. 
                             I found it was not efficient to have to look up these everytime I needed them and came up with the plan to make a website that has them all in one place. 
                             I recently graduated from UNC Chapel Hill's Full-Stack Coding Boot Camp in which I learned how to develop responsive web apps and learn in-demand technologies.
                             With these new skills, I created this website in the hopes that it not only helps me in my career, but also my colleagues.
+                            <br/>
+                            <br/>
                             This website uses React.js, Tailwind CSS, and Material.UI for the frontend and a Java Spring REST API for the backend. 
-                            <br/>
-                            <br/>
                             If you are curious about how this website was made, checkout the GitHub link in the top right. 
-                            Thank you for visiting my website and hope it's as helpful for you as it is for me!
+                            Thank you for visiting my website!
                         </p>
                     </div>
                 </div>
