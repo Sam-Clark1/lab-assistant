@@ -96,7 +96,7 @@ export default function EnzymeAmount() {
                                 Amount of Enzyme Needed (uL)
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={resultsState} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
+                                <TextareaAutosize defaultValue={resultsState} minRows={1} maxRows={1} readOnly className="rounded w-full text-center resize-none p-4"/>
                             </div>
                         </div>
                     </div>

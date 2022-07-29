@@ -4,6 +4,7 @@ import RVACalc from "./calculations/RVACalc";
 import GramsCalc from "./calculations/GramsCalc";
 import LitersCalc from "./calculations/LitersCalc";
 import EnzymeAmount from "./calculations/EnzymeAmount";
+import Dilution from "./calculations/Dilution";
 
 export default function Calculations() {
     const params = useParams();
@@ -16,5 +17,7 @@ export default function Calculations() {
         return <LitersCalc />
     } else if (calc === 'Enzyme Amount') {
         return <EnzymeAmount />
+    } else if (calc === 'Dilution') {
+        return <Dilution />
     }
 }

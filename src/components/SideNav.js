@@ -13,7 +13,8 @@ const navArry = [
   {name:'RVA Endpoint Viscosity'},
   {name: 'Grams'},
   {name: 'Liters'},
-  {name: 'Enzyme Amount'}
+  {name: 'Enzyme Amount'}, 
+  {name: 'Dilution'}
 ]
 
 export default function SideNav() {

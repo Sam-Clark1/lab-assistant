@@ -75,7 +75,7 @@ export default function GramsCalc() {
                                 Milligrams
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={gramsToMilli} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
+                                <TextareaAutosize defaultValue={gramsToMilli} minRows={1} maxRows={1} readOnly className="rounded w-full text-center resize-none p-4"/>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ export default function GramsCalc() {
                                 Grams
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextareaAutosize defaultValue={milliToGrams} minRows={2} maxRows={2} readOnly className="rounded w-full text-center"/>
+                                <TextareaAutosize defaultValue={milliToGrams} minRows={1} maxRows={1} readOnly className="rounded w-full text-center resize-none p-4"/>
                             </div>
                         </div>
                     </div>
