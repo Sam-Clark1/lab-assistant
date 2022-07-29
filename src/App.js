@@ -7,6 +7,7 @@ import CalcPage from './components/CalcPage';
 import Banner from './components/Banner';
 import Calculations from './components/Calculation';
 import CalcLanding from './components/CalcLanding';
+import About from './components/About';
 
 function App() {
    return (
@@ -15,7 +16,7 @@ function App() {
           <Header/>
           <Routes>
             <Route path='/' element={<Banner/>}/>
-            <Route path='about'/>
+            <Route path='about' element={<About/>}/>
             <Route path='calculations' element={<CalcPage/>}>
               <Route index element={<CalcLanding/>}/>
               <Route path=':calc' element={<Calculations/>}/>
