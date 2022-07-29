@@ -1,11 +1,11 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 export default function Banner() {
     return (
         <div>
             <section className="text-white bg-background">
-                <div className="max-w-screen-xl px-4 py-32 mx-auto lg:h-[84vh] lg:items-center lg:flex">
+                <div className="max-w-screen-xl px-4 py-32 mx-auto h-[84vh] lg:items-center lg:flex">
                     <div className="max-w-3xl mx-auto text-center">
                     <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
                         Test Text.

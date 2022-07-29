@@ -15,14 +15,13 @@ export default function MobileNav() {
       });
 
     const menuArray = [
-        {route: '/',text: 'Home'},
-        {route: 'calculations',text: 'Calculations'},
-        {route: 'about',text: 'About'},
-        {route: 'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
-        {route: 'calculations/Grams', text:'Grams'},
+        {route:'/',text: 'Home'},
+        {route:'about',text: 'About'},
+        {route:'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
+        {route:'calculations/Grams', text:'Grams'},
         {route:'calculations/Liters', text:'Liters'},
         {route:'calculations/Enzyme Amount', text:'Enzyme Amount'},
-        {route: 'calculations/Dilution', text:'Dilution'}
+        {route:'calculations/Dilution', text:'Dilution'}
     ]; 
 
       const toggleDrawer = (anchor, open) => (event) => {
