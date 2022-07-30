@@ -8,6 +8,7 @@ import Banner from './components/Banner';
 import Calculations from './components/Calculation';
 import CalcLanding from './components/CalcLanding';
 import About from './components/About';
+import Login from './components/Login';
 
 function App() {
    return (
@@ -17,6 +18,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Banner/>}/>
             <Route path='about' element={<About/>}/>
+            <Route path='login' element={<Login/>}/>
+            <Route path='signup'/>
             <Route path='calculations' element={<CalcPage/>}>
               <Route index element={<CalcLanding/>}/>
               <Route path=':calc' element={<Calculations/>}/>
