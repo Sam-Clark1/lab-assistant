@@ -11,6 +11,13 @@ export default function EnzymeAmount() {
     const [percentEznyme, setPercentEznyme] = useState('');
     const [enzymeDensity, setEnzymeDensity] = useState('');
 
+    const inputArr = [
+        {label:'Mass of Sample (g)', name:'sample', value:sampleMass},
+        {label:'Percent Protein of Sample', name:'protein', value:percentProtein},
+        {label:'Percent of Enzyme to Sample', name:'enzyme', value:percentEznyme},
+        {label:'Density of Enzyme (g/mL)', name:'density', value:enzymeDensity},
+    ]
+
     const handleChange = event => {
         if (event.target.name === 'sample') {
             setSampleMass(event.target.value)
@@ -51,38 +58,16 @@ export default function EnzymeAmount() {
             <div className="bg-card p-4 pb-6 shadow-lg shadow-black flex justify-center lg:justify-none rounded">
                 <form onSubmit={handleSubmit}>
                     <div className="grid 2xl:grid-cols-6 2xl:gap-20 grid-cols-1">
-                        <div className="my-4 lg:my-0">
-                            <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Mass of Sample (g)
-                            </label>
-                            <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="sample" className="bg-1text rounded" defaultValue={sampleMass} onBlur={handleChange}/>
+                        {inputArr.map(e => (
+                            <div className="my-4 lg:my-0" key={e.name}>
+                                <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
+                                    {e.label}
+                                </label>
+                                <div className="relative rounded-md shadow-sm">
+                                    <TextField id="outlined-basic"  variant="outlined" name={e.name} className="bg-1text rounded" defaultValue={e.value} onChange={handleChange}/>
+                                </div>
                             </div>
-                        </div>
-                        <div className="my-4 lg:my-0">
-                            <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Percent Protein of Sample
-                            </label>
-                            <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="protein" className="bg-1text rounded" defaultValue={percentProtein} onBlur={handleChange}/>
-                            </div>
-                        </div>
-                        <div className="my-4 lg:my-0">
-                            <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Percent of Enzyme to Sample
-                            </label>
-                            <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="enzyme" className="bg-1text rounded" defaultValue={percentEznyme} onBlur={handleChange}/>
-                            </div>
-                        </div>
-                        <div className="my-4 lg:my-0">
-                            <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Density of Enzyme (g/mL)
-                            </label>
-                            <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" name="density" className="bg-1text rounded" defaultValue={enzymeDensity} onBlur={handleChange}/>
-                            </div>
-                        </div>
+                        ))}
                         <div className="my-auto mx-auto">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
                                 Submit Inputs

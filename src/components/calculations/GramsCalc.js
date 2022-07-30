@@ -41,7 +41,7 @@ export default function GramsCalc() {
 
     const formArr = [
         {label1:'Grams', label2:'Milligrams', name:'g1', value1:g1, value2:gramsToMilli, submit:handleSubmit},
-        {label1:'Milligrams', label2:'Gramsrams', name:'mg2', value1:mg2, value2:milliToGrams, submit:handleSubmit2},
+        {label1:'Milligrams', label2:'Grams', name:'mg2', value1:mg2, value2:milliToGrams, submit:handleSubmit2},
     ]
     
     return(
@@ -57,12 +57,12 @@ export default function GramsCalc() {
             </p>
         </div>
             {formArr.map(e => (
-            <div className="bg-card p-4 pb-6 mb-10 shadow-lg shadow-black flex justify-center lg:justify-none rounded">
+            <div className="bg-card p-4 pb-6 mb-10 shadow-lg shadow-black flex justify-center lg:justify-none rounded" key={e.label1}>
                 <form onSubmit={e.submit}>
                     <div className="grid 2xl:grid-cols-3 2xl:gap-20 grid-cols-1">
                         <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Grams
+                                {e.label1}
                             </label>
                             <div className="relative rounded-md shadow-sm">
                                 <TextField id="outlined-basic"  variant="outlined" name={e.name} className="bg-1text rounded" defaultValue={e.value1} onBlur={handleChange}/>
@@ -78,7 +78,7 @@ export default function GramsCalc() {
                         </div>
                         <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Milligrams
+                                {e.label2}
                             </label>
                             <div className="relative rounded-md shadow-sm">
                                 <TextareaAutosize defaultValue={e.value2} minRows={1} maxRows={1} readOnly className="rounded w-full text-center resize-none p-4"/>

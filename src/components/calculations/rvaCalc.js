@@ -57,7 +57,7 @@ export default function RVACalc() {
                 <form onSubmit={handleSubmit}>
                     <div className="grid 2xl:grid-cols-5 2xl:gap-20 grid-cols-1">
                         {inputArr.map(e => (
-                        <div className="my-4 lg:my-0">
+                        <div className="my-4 lg:my-0" key={e.name}>
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
                                 {e.label}
                             </label>
