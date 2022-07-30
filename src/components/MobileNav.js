@@ -5,7 +5,8 @@ import { Box,
         List, 
         ListItem, 
         ListItemButton, 
-        ListItemText} from '@mui/material'
+        ListItemText,
+        Divider} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 
@@ -41,6 +42,28 @@ export default function MobileNav() {
           onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
+                <Link to={'login'} className='drawer-nav-link'>
+                    <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemText sx={{color: '#FFFFFF'}} primary={'Login'} />
+                            </ListItemButton>
+                    </ListItem>
+                </Link>
+                <Link to={'signup'} className='drawer-nav-link'>
+                    <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemText sx={{color: '#FFFFFF'}} primary={'Sign Up'} />
+                            </ListItemButton>
+                    </ListItem>
+                </Link>
+                <button className='w-full'>
+                    <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemText sx={{color: '#FFFFFF'}} primary={'Log Out'} />
+                            </ListItemButton>
+                    </ListItem>
+                </button>
+                <Divider className='bg-card'/>
                 {menuArray.map(({route, text}) => (
                 <Link to={route} className='drawer-nav-link' key={text}>
                     <ListItem disablePadding>

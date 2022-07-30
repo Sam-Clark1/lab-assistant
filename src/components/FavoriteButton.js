@@ -16,7 +16,7 @@ const handleFavorite = () => {
   return (
     <div className="flex justify-center lg:justify-end ">
         <button onClick={handleFavorite}>
-            {favorite ? <StarIcon className='text-1text'/> : <StarOutlineIcon className='text-1text'/>}
+            {favorite ? <StarIcon className='text-accent'/> : <StarOutlineIcon className='text-accent'/>}
         </button>
     </div>
   )

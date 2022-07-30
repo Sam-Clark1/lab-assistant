@@ -8,7 +8,7 @@ export default function About() {
             <div className="bg-card m-6 p-4 shadow-lg shadow-black rounded">
                 <div className="grid 2xl:grid-cols-2 2xl:gap-20 grid-cols-1">
                     <div className='m-auto'>
-                        <Avatar src={require("../assets/about.jpg")} alt='Sam Clark' sx={{height:250, width: 250}}/>
+                        <Avatar src={require("../../assets/about.jpg")} alt='Sam Clark' sx={{height:250, width: 250}}/>
                     </div>
                     <div className="m-auto">
                         <p className="block text-lg font-medium text-1text">

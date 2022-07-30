@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import SideNav from './SideNav';
-import Favorites from "./Favorites";
+import SideNav from '../SideNav';
+import Favorites from "../Favorites";
 
 export default function CalcPage() {
 
