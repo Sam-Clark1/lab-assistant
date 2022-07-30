@@ -11,7 +11,7 @@ return (
     <>
     <SideNav/>
     <Favorites/>
-    <Box component="main" sx={{ p: 3 }} className="md:ml-[340px] md:mr-[340px] min-h-[84vh]">
+    <Box component="main" sx={{ p: 3 }} className="md:ml-[340px] lg:mr-[340px] md:mr-[75px] min-h-[84vh]">
         <Outlet />
     </Box>
     </>

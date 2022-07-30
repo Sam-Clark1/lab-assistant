@@ -21,7 +21,7 @@ const navArry = []
           }}
           variant="permanent"
           anchor="right"
-          className='hidden md:block '
+          className='hidden lg:block '
         >
 
           <List>

@@ -5,24 +5,17 @@ import { Box,
         List, 
         ListItem, 
         ListItemButton, 
-        ListItemText} from '@mui/material'
+        ListItemText,
+        Divider} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 
-export default function MobileNav() {
+export default function MobileFavorites() {
     const [state, setState] = useState({
-        left: false
+        right: false
       });
 
-    const menuArray = [
-        {route:'/',text: 'Home'},
-        {route:'about',text: 'About'},
-        {route:'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
-        {route:'calculations/Grams', text:'Grams'},
-        {route:'calculations/Liters', text:'Liters'},
-        {route:'calculations/Enzyme Amount', text:'Enzyme Amount'},
-        {route:'calculations/Dilution', text:'Dilution'}
-    ]; 
+    const menuArray = []; 
 
       const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -41,14 +34,26 @@ export default function MobileNav() {
           onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {menuArray.map(({route, text}) => (
-                <Link to={route} className='drawer-nav-link' key={text}>
+                <a href="https://github.com/Sam-Clark1/lab-assistant" className="text-1text hover:text-accent" target="_blank" rel='noreferrer'>
                     <ListItem disablePadding>
                             <ListItemButton>
-                                <ListItemText sx={{color: '#FFFFFF'}} primary={text} />
+                                <ListItemText sx={{color: '#FFFFFF'}} primary={'GitHub'} />
                             </ListItemButton>
                     </ListItem>
-                </Link>
+                </a>
+                <Divider className='bg-card'/>
+                <ListItem className='text-xl text-1text'>
+                    Favorites
+                </ListItem>
+                <Divider className='bg-card'/>
+                {menuArray.map(({route, text}) => (
+                <ListItem key={text} disablePadding>
+                    <Link to={route} className='drawer-nav-link'>
+                        <ListItemButton>
+                            <ListItemText sx={{color: '#FFFFFF'}} primary={text} />
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
                 ))}
             </List>
         </Box>
@@ -56,7 +61,7 @@ export default function MobileNav() {
 
     return(
         <div>
-        {['left'].map((anchor) => (
+        {['right'].map((anchor) => (
             <Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>
                     <MenuIcon className='text-1text active:bg-card' sx={{fontSize:'2.5rem'}}/>
@@ -72,4 +77,4 @@ export default function MobileNav() {
         ))}
         </div>
     );
-};
+}
