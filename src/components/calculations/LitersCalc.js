@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import {litersToMilliliters, millilitersToLiters} from '../../utils/liters';
+import FavoriteButton from "../FavoriteButton";
 
 export default function LitersCalc() {
     const [l1, setL1] = useState('');
@@ -46,6 +47,7 @@ export default function LitersCalc() {
 
     return(
         <>
+        <FavoriteButton/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Liters

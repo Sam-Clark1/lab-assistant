@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { enzymeAmount } from "../../utils/enzyme";
+import FavoriteButton from "../FavoriteButton";
 
 export default function EnzymeAmount() {
     const [resultsState, setResultsState] = useState('');
@@ -42,6 +43,7 @@ export default function EnzymeAmount() {
 
     return(
         <>
+        <FavoriteButton/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Enzyme Amount
@@ -78,7 +80,7 @@ export default function EnzymeAmount() {
                         </div>
                         <div className="my-4 lg:my-0">
                             <label className="block text-sm font-medium text-2text whitespace-nowrap justify-center flex">
-                                Amount of Enzyme Needed (uL)
+                                Enzyme Amount (uL)
                             </label>
                             <div className="relative rounded-md shadow-sm">
                                 <TextareaAutosize defaultValue={resultsState} minRows={1} maxRows={1} readOnly className="rounded w-full text-center resize-none p-4"/>

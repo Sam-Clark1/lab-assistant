@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-// import Divider from '@mui/material/Divider';
+import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText'
@@ -38,6 +38,10 @@ export default function SideNav() {
         >
 
           <List>
+            <ListItem className='text-xl'>
+                Calculations
+            </ListItem>
+            <Divider className='bg-card'/>
             {navArry.map((item, index) => (
               <Link to={`${item.name}`} key={item.name}>
                 <ListItem disablePadding className='hover:bg-card'>

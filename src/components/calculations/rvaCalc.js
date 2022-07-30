@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { rvaEndPoint } from "../../utils/rvaEndPoint";
-
+import FavoriteButton from "../FavoriteButton";
 export default function RVACalc() {
     const [resultsState, setResultsState] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -9,6 +9,8 @@ export default function RVACalc() {
     
     const [formState, setFormState] = useState({minutes:'', samples:''});
     const {minutes, samples} = formState;
+
+    let isFavorite = true;
 
     const inputArr = [
         {label:'Number of Samples', value:samples, name:'samples'},
@@ -35,10 +37,11 @@ export default function RVACalc() {
             setIsCopied(true)
             setTimeout(()=>{setIsCopied(false)}, 1500)
         } 
-    }
-
+    };
+    
     return(
         <>
+        <FavoriteButton isFavorite={isFavorite}/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 RVA Enpoint Viscosity
@@ -62,7 +65,7 @@ export default function RVACalc() {
                                 {e.label}
                             </label>
                             <div className="relative rounded-md shadow-sm">
-                                <TextField id="outlined-basic"  variant="outlined" type='number' name={e.name} className="bg-1text rounded" defaultValue={e.value} onBlur={handleChange}/>
+                                <TextField id="outlined-basic"  variant="outlined" type='number' name={e.name} className="bg-1text rounded" defaultValue={e.value} onChange={handleChange}/>
                             </div>
                         </div>
                         ))}

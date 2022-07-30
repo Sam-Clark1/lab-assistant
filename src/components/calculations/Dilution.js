@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, TextareaAutosize, Alert } from "@mui/material";
 import { dilutionAmount } from '../../utils/dilution';
+import FavoriteButton from "../FavoriteButton";
 
 export default function Dilution() {
     const [errorMessage, setErrorMessage] = useState('');
@@ -52,6 +53,7 @@ export default function Dilution() {
 
     return(
         <>
+        <FavoriteButton/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Dilution

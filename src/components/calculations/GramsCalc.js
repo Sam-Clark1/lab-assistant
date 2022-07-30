@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { gramsToMilligrams, milligramsToGrams } from "../../utils/grams";
+import FavoriteButton from "../FavoriteButton";
 
 export default function GramsCalc() {
     const [g1, setG1] = useState('');
@@ -46,6 +47,7 @@ export default function GramsCalc() {
     
     return(
         <>
+        <FavoriteButton/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Grams
