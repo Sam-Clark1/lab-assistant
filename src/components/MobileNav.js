@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Box, 
         Drawer, 
         Button, 
@@ -8,16 +8,36 @@ import { Box,
         ListItemText,
         Divider} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import AuthService from '../api/auth.service';
+import event from "../api/event";
 
 export default function MobileNav() {
     const [state, setState] = useState({
         left: false
       });
+    const [currentUser, setCurrentUser] = useState(undefined);
+
+    useEffect(() => {
+        const user = AuthService.getCurrentUser();
+        if (user) {
+            setCurrentUser(user)
+        }
+        event.on("logout", () => {
+            logOut();
+          });
+      
+        return () => {
+        event.remove("logout");
+        };
+    },[]);
+
+    const logOut = () => {
+        AuthService.logout();
+        setCurrentUser(undefined);
+      };
 
     const menuArray = [
-        {route:'/',text: 'Home'},
-        {route:'about',text: 'About'},
         {route:'calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
         {route:'calculations/Grams', text:'Grams'},
         {route:'calculations/Liters', text:'Liters'},
@@ -25,23 +45,32 @@ export default function MobileNav() {
         {route:'calculations/Dilution', text:'Dilution'}
     ]; 
 
-      const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-          return;
-        }
-    
-        setState({ ...state, [anchor]: open });
-      };
+    const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+    }
+    setState({ ...state, [anchor]: open });
+    };
 
-      const list = (anchor) => (
-        <Box
-          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, height:'100%'}}
-          className='bg-menu'
-          role="presentation"
-          onClick={toggleDrawer(anchor, false)}
-          onKeyDown={toggleDrawer(anchor, false)}
-        >
-            <List>
+    const list = (anchor) => (
+    <Box
+        sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, height:'100%'}}
+        className='bg-menu'
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+    >
+        <List>
+            {currentUser ? 
+            <a href='/' className='w-full' onClick={logOut}>
+                <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemText sx={{color: '#FFFFFF'}} primary={'Log Out'} />
+                        </ListItemButton>
+                </ListItem>
+            </a>
+            :
+            <>
                 <Link to={'login'} className='drawer-nav-link'>
                     <ListItem disablePadding>
                             <ListItemButton>
@@ -56,26 +85,36 @@ export default function MobileNav() {
                             </ListItemButton>
                     </ListItem>
                 </Link>
-                <button className='w-full'>
-                    <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemText sx={{color: '#FFFFFF'}} primary={'Log Out'} />
-                            </ListItemButton>
-                    </ListItem>
-                </button>
-                <Divider className='bg-card'/>
-                {menuArray.map(({route, text}) => (
-                <Link to={route} className='drawer-nav-link' key={text}>
-                    <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemText sx={{color: '#FFFFFF'}} primary={text} />
-                            </ListItemButton>
-                    </ListItem>
-                </Link>
-                ))}
-            </List>
-        </Box>
-      );
+            </>
+            }
+            <Divider className='bg-card'/>
+            <Link to={'/'} className='drawer-nav-link'>
+                <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemText sx={{color: '#FFFFFF'}} primary={'Home'} />
+                        </ListItemButton>
+                </ListItem>
+            </Link>
+            <Link to={'about'} className='drawer-nav-link'>
+                <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemText sx={{color: '#FFFFFF'}} primary={'About'} />
+                        </ListItemButton>
+                </ListItem>
+            </Link>
+            <Divider className='bg-card'/>
+            {menuArray.map(({route, text}) => (
+            <Link to={route} className='drawer-nav-link' key={text}>
+                <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemText sx={{color: '#FFFFFF'}} primary={text} />
+                        </ListItemButton>
+                </ListItem>
+            </Link>
+            ))}
+        </List>
+    </Box>
+    );
 
     return(
         <div>

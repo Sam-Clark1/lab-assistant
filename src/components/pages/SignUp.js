@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import AuthService from '../../api/auth.service';
 import { Alert } from '@mui/material';
 import { BeakerIcon } from '@heroicons/react/outline';
-import { Navigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
+  let navigate = useNavigate();
   const [formState, setFormState] = useState({username:'', email:'', password:''});
   const {username, email, password} = formState;
   const [errorMessage, setErrorMessage] = useState('');
-  const [navState, setNavState] = useState(false);
 
   const handleChange = (event) => {
     const {name, value} = event.target;
@@ -22,7 +22,8 @@ export default function SignUp() {
       await AuthService.register(username, email, password).then(
         (response) => {
           console.log(response.data.message);
-          setNavState(true);
+          navigate('/login');
+          window.location.reload();
         },
         (error) => {
           const resMessage =
@@ -107,7 +108,6 @@ export default function SignUp() {
           <Alert severity="error" className={`relative  ${errorMessage.length === 0 ? 'invisible' : ''}`} onClose={() => {setErrorMessage('')}}>{errorMessage}</Alert>
         </div>
       </div>
-      {navState && <Navigate to={'/calculations'} replace={true}/>}
     </>
   )
 }
