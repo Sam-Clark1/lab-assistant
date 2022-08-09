@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
-import axios from '../../api/axios';
 import { Alert } from '@mui/material';
 import { BeakerIcon } from '@heroicons/react/outline';
+import AuthService from '../../api/auth.service';
+import { Navigate } from 'react-router';
 
 export default function Login() {
-
-  const [formState, setFormState] = useState({email:'', password:''});
-  const {email, password} = formState;
+  const [formState, setFormState] = useState({username:'', password:''});
+  const {username, password} = formState;
   const [errorMessage, setErrorMessage] = useState('');
+  const [navState, setNavState] = useState(false);
 
   const handleChange = (event) => {
     const {name, value} = event.target;
@@ -17,7 +18,21 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState)
+    if (username.length > 0 && password.length > 0) {
+      await AuthService.login(username, password).then(
+        () => {
+          setNavState(true);
+        },
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          setErrorMessage(resMessage);
+        }
+    )}
   }
 
   return (
@@ -34,18 +49,18 @@ export default function Login() {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
+                <label htmlFor="username" className="sr-only">
+                  Username
                 </label>
                 <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
+                  id="username"
+                  name="username"
+                  type="username"
+                  autoComplete="username"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-accent focus:border-accent focus:z-10 sm:text-sm"
-                  placeholder="Email address"
-                  defaultValue={email}
+                  placeholder="Username"
+                  defaultValue={username}
                   onChange={handleChange}
                 />
               </div>
@@ -75,6 +90,7 @@ export default function Login() {
           <Alert severity="error" className={`relative  ${errorMessage.length === 0 ? 'invisible' : ''}`} onClose={() => {setErrorMessage('')}}>{errorMessage}</Alert>
         </div>
       </div>
+      {navState && <Navigate to={'/calculations'} replace={true}/>}
     </>
   );
 }

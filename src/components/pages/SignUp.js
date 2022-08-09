@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import AuthService from '../../api/auth.service'
+import AuthService from '../../api/auth.service';
 import { Alert } from '@mui/material';
 import { BeakerIcon } from '@heroicons/react/outline';
 import { Navigate } from 'react-router';
