@@ -25,12 +25,7 @@ export default function Header() {
   }, [])
 
   const determineSession = async () => {
-    try {
-      let response = await axios.get("/logged");
-      console.log(response.data)
-    } catch (error) {
-      console.log(error)
-    }
+    
   }
   return (
         
