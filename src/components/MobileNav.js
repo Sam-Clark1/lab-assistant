@@ -102,6 +102,13 @@ export default function MobileNav() {
                         </ListItemButton>
                 </ListItem>
             </Link>
+            <a href="https://github.com/Sam-Clark1/lab-assistant" className="text-1text hover:text-accent" target="_blank" rel='noreferrer'>
+                    <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemText sx={{color: '#FFFFFF'}} primary={'GitHub'} />
+                            </ListItemButton>
+                    </ListItem>
+                </a>
             <Divider className='bg-card'/>
             {menuArray.map(({route, text}) => (
             <Link to={route} className='drawer-nav-link' key={text}>

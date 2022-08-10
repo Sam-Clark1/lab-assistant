@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Box, 
         Drawer, 
         Button, 
@@ -8,14 +8,29 @@ import { Box,
         ListItemText,
         Divider} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import AuthService from '../api/auth.service';
+import axios from '../api/axios';
 
 export default function MobileFavorites() {
     const [state, setState] = useState({
         right: false
       });
+    
+    const [currentUser, setCurrentUser] = useState(undefined);
+    const [userFavorites, setUserFavorites] = useState([]);
 
-    const menuArray = []; 
+    useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+        setCurrentUser(user);
+        axios.get(`users/${user.id}`).then(
+        response => {
+            setUserFavorites(response.data.calculations)
+        })
+        }
+      }, []);
 
       const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -34,47 +49,43 @@ export default function MobileFavorites() {
           onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                <a href="https://github.com/Sam-Clark1/lab-assistant" className="text-1text hover:text-accent" target="_blank" rel='noreferrer'>
-                    <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemText sx={{color: '#FFFFFF'}} primary={'GitHub'} />
-                            </ListItemButton>
-                    </ListItem>
-                </a>
-                <Divider className='bg-card'/>
                 <ListItem className='text-xl text-1text'>
                     Favorites
                 </ListItem>
                 <Divider className='bg-card'/>
-                {menuArray.map(({route, text}) => (
-                <ListItem key={text} disablePadding>
-                    <Link to={route} className='drawer-nav-link'>
-                        <ListItemButton>
-                            <ListItemText sx={{color: '#FFFFFF'}} primary={text} />
-                        </ListItemButton>
+                {userFavorites.map((item) => (
+                    <Link to={`calculations/${item}`} key={item} className='drawer-nav-link'>
+                        <ListItem disablePadding>
+                                <ListItemButton disableRipple>
+                                    <ListItemText sx={{color: '#FFFFFF'}} primary={item} />
+                                </ListItemButton>
+                        </ListItem>
                     </Link>
-                </ListItem>
                 ))}
             </List>
         </Box>
       );
 
     return(
-        <div>
-        {['right'].map((anchor) => (
-            <Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)}>
-                    <MenuIcon className='text-1text active:bg-card' sx={{fontSize:'2.5rem'}}/>
-                </Button>
-                <Drawer
-                    anchor={anchor}
-                    open={state[anchor]}
-                    onClose={toggleDrawer(anchor, false)}
-                >
-                    {list(anchor)}
-                </Drawer>
-            </Fragment>
-        ))}
-        </div>
+        <>
+            {currentUser &&
+            <div>
+                {['right'].map((anchor) => (
+                    <Fragment key={anchor}>
+                        <Button onClick={toggleDrawer(anchor, true)}>
+                            <MenuIcon className='text-1text active:bg-card' sx={{fontSize:'2.5rem'}}/>
+                        </Button>
+                        <Drawer
+                            anchor={anchor}
+                            open={state[anchor]}
+                            onClose={toggleDrawer(anchor, false)}
+                        >
+                            {list(anchor)}
+                        </Drawer>
+                    </Fragment>
+                ))}
+            </div>
+            }
+        </>
     );
 }
