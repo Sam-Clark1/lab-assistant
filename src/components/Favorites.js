@@ -2,20 +2,15 @@ import React, {useState, useEffect} from 'react'
 import { Box, Drawer, List, ListItem, ListItemButton, ListItemText, Divider } from '@mui/material'
 import { Link } from 'react-router-dom';
 import AuthService from '../api/auth.service';
-import axios from '../api/axios';
 
-export default function Favorites() {
+export default function Favorites(props) {
   const [currentUser, setCurrentUser] = useState(undefined);
-  const [userFavorites, setUserFavorites] = useState([])
+  const {userFavorites} = props;
+
   useEffect(() => {
     const user = AuthService.getCurrentUser();
-
     if (user) {
       setCurrentUser(user);
-      axios.get(`users/${user.id}`).then(
-        response => {
-          setUserFavorites(response.data.calculations)
-        })
     }
   }, []);
 

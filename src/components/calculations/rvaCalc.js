@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { rvaEndPoint } from "../../utils/rvaEndPoint";
 import FavoriteButton from "../FavoriteButton";
-export default function RVACalc() {
+export default function RVACalc(props) {
+    const {userFavorites, setUserFavorites} = props;
     const [resultsState, setResultsState] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [isCopied, setIsCopied] = useState(false);
@@ -10,7 +11,7 @@ export default function RVACalc() {
     const [formState, setFormState] = useState({minutes:'', samples:''});
     const {minutes, samples} = formState;
 
-    let isFavorite = true;
+    const [calcName, setCalcName] = useState('RVA Endpoint Viscosity')
 
     const inputArr = [
         {label:'Number of Samples', value:samples, name:'samples'},
@@ -41,10 +42,10 @@ export default function RVACalc() {
     
     return(
         <>
-        <FavoriteButton isFavorite={isFavorite}/>
+        <FavoriteButton calcName={calcName} setCalcName={setCalcName} userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
-                RVA Enpoint Viscosity
+                RVA Endpoint Viscosity
             </h1>
         </div>
         <div className="mb-7">

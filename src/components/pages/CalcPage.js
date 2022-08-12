@@ -5,12 +5,12 @@ import SideNav from '../SideNav';
 import Favorites from "../Favorites";
 import AuthService from '../../api/auth.service';
 
-export default function CalcPage() {
+export default function CalcPage(props) {
+    const {userFavorites, setUserFavorites} = props;
     const [currentUser, setCurrentUser] = useState(undefined);
 
     useEffect(() => {
       const user = AuthService.getCurrentUser();
-  
       if (user) {
         setCurrentUser(user);
       }
@@ -19,18 +19,16 @@ export default function CalcPage() {
 return (
     <>
     <SideNav/>
-    <Favorites/>
+    <Favorites userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
     {currentUser ?
     <Box component="main" sx={{ p: 3 }} className="md:ml-[340px] lg:mr-[340px] md:mr-[75px] min-h-[84vh]">
-        <Outlet />
+        <Outlet/>
     </Box>
     :
     <Box component="main" sx={{ p: 3 }} className="md:ml-[340px] lg:mr-[100px] md:mr-[75px] min-h-[84vh]">
-        <Outlet />
+        <Outlet/>
     </Box>
     }
     </>
-   
-)
-
-}
+  );
+};
