@@ -3,7 +3,10 @@ import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import {litersToMilliliters, millilitersToLiters} from '../../utils/liters';
 import FavoriteButton from "../FavoriteButton";
 
-export default function LitersCalc() {
+export default function LitersCalc(props) {
+    const {userFavorites, setUserFavorites} = props;
+    const [calcName, setCalcName] = useState('Liters');
+    
     const [l1, setL1] = useState('');
     const [ml2, setmL2] = useState('');
     const [litersToMilli, setLitersToMilli] = useState('');
@@ -47,7 +50,7 @@ export default function LitersCalc() {
 
     return(
         <>
-        <FavoriteButton/>
+        <FavoriteButton calcName={calcName} setCalcName={setCalcName} userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Liters

@@ -3,7 +3,10 @@ import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { gramsToMilligrams, milligramsToGrams } from "../../utils/grams";
 import FavoriteButton from "../FavoriteButton";
 
-export default function GramsCalc() {
+export default function GramsCalc(props) {
+    const {userFavorites, setUserFavorites} = props;
+    const [calcName, setCalcName] = useState('Grams');
+
     const [g1, setG1] = useState('');
     const [mg2, setMg2] = useState('');
     const [gramsToMilli, setGramsToMilli] = useState('');
@@ -47,7 +50,7 @@ export default function GramsCalc() {
     
     return(
         <>
-        <FavoriteButton/>
+        <FavoriteButton calcName={calcName} setCalcName={setCalcName} userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Grams

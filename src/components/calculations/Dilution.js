@@ -3,14 +3,17 @@ import { Button, TextareaAutosize, Alert } from "@mui/material";
 import { dilutionAmount } from '../../utils/dilution';
 import FavoriteButton from "../FavoriteButton";
 
-export default function Dilution() {
+export default function Dilution(props) {
+    const {userFavorites, setUserFavorites} = props;
+    const [calcName, setCalcName] = useState('Dilution');
+
     const [errorMessage, setErrorMessage] = useState('');
 
     const [C1, setC1] = useState('');
     const [V1, setV1] = useState('');
     const [C2, setC2] = useState('');
     const [V2, setV2] = useState('');
-
+    
     const inputArr = [
         {label: 'C1 (M)', value: C1, name: 'c1'},
         {label: 'V1 (mL)', value: V1, name: 'v1'},
@@ -53,7 +56,7 @@ export default function Dilution() {
 
     return(
         <>
-        <FavoriteButton/>
+        <FavoriteButton calcName={calcName} setCalcName={setCalcName} userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Dilution

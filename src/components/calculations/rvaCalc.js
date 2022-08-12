@@ -4,14 +4,14 @@ import { rvaEndPoint } from "../../utils/rvaEndPoint";
 import FavoriteButton from "../FavoriteButton";
 export default function RVACalc(props) {
     const {userFavorites, setUserFavorites} = props;
+    const [calcName, setCalcName] = useState('RVA Endpoint Viscosity');
+
     const [resultsState, setResultsState] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [isCopied, setIsCopied] = useState(false);
     
     const [formState, setFormState] = useState({minutes:'', samples:''});
     const {minutes, samples} = formState;
-
-    const [calcName, setCalcName] = useState('RVA Endpoint Viscosity')
 
     const inputArr = [
         {label:'Number of Samples', value:samples, name:'samples'},

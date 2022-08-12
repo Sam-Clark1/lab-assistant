@@ -3,7 +3,10 @@ import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { enzymeAmount } from "../../utils/enzyme";
 import FavoriteButton from "../FavoriteButton";
 
-export default function EnzymeAmount() {
+export default function EnzymeAmount(props) {
+    const {userFavorites, setUserFavorites} = props;
+    const [calcName, setCalcName] = useState('Enzyme Amount');
+
     const [resultsState, setResultsState] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -43,7 +46,7 @@ export default function EnzymeAmount() {
 
     return(
         <>
-        <FavoriteButton/>
+        <FavoriteButton calcName={calcName} setCalcName={setCalcName} userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
         <div className="flex justify-center mb-5">
             <h1 className="text-1text text-3xl">
                 Enzyme Amount
