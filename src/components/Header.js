@@ -14,7 +14,8 @@ const navigation = [
   { name: 'About', href: '/about' },
 ]
 
-export default function Header() {
+export default function Header(props) {
+  const {userFavorites} = props;
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -98,7 +99,7 @@ export default function Header() {
                   {currentUser &&
                     <div className="relative inset-y-0 right-0 flex items-center lg:hidden">
                     <a href="#">
-                      <MobileFavorites/>
+                      <MobileFavorites userFavorites={userFavorites}/>
                     </a>
                   </div>
                   }

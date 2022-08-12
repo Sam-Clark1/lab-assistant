@@ -10,25 +10,20 @@ import { Box,
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import AuthService from '../api/auth.service';
-import axios from '../api/axios';
 
-export default function MobileFavorites() {
+export default function MobileFavorites(props) {
+    const {userFavorites} = props;
     const [state, setState] = useState({
         right: false
       });
     
     const [currentUser, setCurrentUser] = useState(undefined);
-    const [userFavorites, setUserFavorites] = useState([]);
 
     useEffect(() => {
     const user = AuthService.getCurrentUser();
 
     if (user) {
         setCurrentUser(user);
-        axios.get(`users/${user.id}`).then(
-        response => {
-            setUserFavorites(response.data.calculations)
-        })
         }
       }, []);
 
