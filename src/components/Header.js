@@ -9,9 +9,9 @@ import AuthService from '../api/auth.service';
 import event from "../api/event";
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Calculations', href: '/calculations'},
-  { name: 'About', href: '/about' },
+  { name: 'Home', href: 'lab-assistant/' },
+  { name: 'Calculations', href: 'lab-assistant/calculations'},
+  { name: 'About', href: 'lab-assistant/about' },
 ]
 
 export default function Header(props) {
