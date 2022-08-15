@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:3001",
   "name": "lab-assistant",
   "version": "0.1.0",
   "engines": {
