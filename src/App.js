@@ -31,7 +31,7 @@ function App() {
         <div className='flex-col justify-start min-h-screen'>
           <Header  userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
           <Routes>
-            <Route path='/' element={<Banner/>}/>
+            <Route path='lab-assistant/' element={<Banner/>}/>
             <Route path='about' element={<About/>}/>
             <Route path='login' element={<Login/>}/>
             <Route path='signup' element={<SignUp/>}/>

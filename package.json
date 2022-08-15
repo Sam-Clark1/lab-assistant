@@ -1,10 +1,7 @@
 {
-  "proxy": "http://localhost:3001",
+  "homepage": "http://sam-clark1.github.io/lab-assistant",
   "name": "lab-assistant",
   "version": "0.1.0",
-  "engines": {
-    "node": "16.x"
-  },
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -26,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
