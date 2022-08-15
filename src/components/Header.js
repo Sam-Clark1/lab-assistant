@@ -81,12 +81,12 @@ export default function Header(props) {
                     </a>
                   :
                   <>
-                    <Link to={'/login'}>
+                    <Link to={'lab-assistant/login'}>
                       <div className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block'>
                           Login
                       </div>
                     </Link>
-                    <Link to={'/signup'}>
+                    <Link to={'lab-assistant/signup'}>
                       <div className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block'>
                             Sign Up
                       </div>
