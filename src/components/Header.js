@@ -76,7 +76,7 @@ export default function Header(props) {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {currentUser ? 
-                    <a href='/' className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block' onClick={logOut}>
+                    <a href='lab-assistant/' className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block' onClick={logOut}>
                             Log Out
                     </a>
                   :

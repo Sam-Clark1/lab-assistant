@@ -32,10 +32,10 @@ function App() {
           <Header  userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>
           <Routes>
             <Route path='lab-assistant/' element={<Banner/>}/>
-            <Route path='about' element={<About/>}/>
-            <Route path='login' element={<Login/>}/>
-            <Route path='signup' element={<SignUp/>}/>
-            <Route path='calculations' element={<CalcPage  userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>}>
+            <Route path='lab-assistant/about' element={<About/>}/>
+            <Route path='lab-assistant/login' element={<Login/>}/>
+            <Route path='lab-assistant/signup' element={<SignUp/>}/>
+            <Route path='lab-assistant/calculations' element={<CalcPage  userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>}>
               <Route index element={<CalcLanding/>}/>
               <Route path=':calc' element={<Calculations  userFavorites={userFavorites} setUserFavorites={setUserFavorites}/>}/>
             </Route>    
