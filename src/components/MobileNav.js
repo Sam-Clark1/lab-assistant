@@ -38,11 +38,11 @@ export default function MobileNav() {
       };
 
     const menuArray = [
-        {route:'lab-assistant/calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
-        {route:'lab-assistant/calculations/Grams', text:'Grams'},
-        {route:'lab-assistant/calculations/Liters', text:'Liters'},
-        {route:'lab-assistant/calculations/Enzyme Amount', text:'Enzyme Amount'},
-        {route:'lab-assistant/calculations/Dilution', text:'Dilution'}
+        {route:'/calculations/RVA Endpoint Viscosity', text:'RVA Endpoint Viscosity'},
+        {route:'/calculations/Grams', text:'Grams'},
+        {route:'/calculations/Liters', text:'Liters'},
+        {route:'/calculations/Enzyme Amount', text:'Enzyme Amount'},
+        {route:'/calculations/Dilution', text:'Dilution'}
     ]; 
 
     const toggleDrawer = (anchor, open) => (event) => {
@@ -62,7 +62,7 @@ export default function MobileNav() {
     >
         <List>
             {currentUser ? 
-            <a href='lab-assistant/' className='w-full' onClick={logOut}>
+            <a href='/' className='w-full' onClick={logOut}>
                 <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemText sx={{color: '#FFFFFF'}} primary={'Log Out'} />
@@ -71,14 +71,14 @@ export default function MobileNav() {
             </a>
             :
             <>
-                <Link to={'lab-assistant/login'} className='drawer-nav-link'>
+                <Link to={'/login'} className='drawer-nav-link'>
                     <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemText sx={{color: '#FFFFFF'}} primary={'Login'} />
                             </ListItemButton>
                     </ListItem>
                 </Link>
-                <Link to={'lab-assistant/signup'} className='drawer-nav-link'>
+                <Link to={'/signup'} className='drawer-nav-link'>
                     <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemText sx={{color: '#FFFFFF'}} primary={'Sign Up'} />
@@ -95,14 +95,14 @@ export default function MobileNav() {
                         </ListItemButton>
                 </ListItem>
             </Link>
-            <Link to={'lab-assistant/about'} className='drawer-nav-link'>
+            <Link to={'/about'} className='drawer-nav-link'>
                 <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemText sx={{color: '#FFFFFF'}} primary={'About'} />
                         </ListItemButton>
                 </ListItem>
             </Link>
-            <a href="https://github.com/Sam-Clark1/lab-assistant" className="text-1text hover:text-accent" target="_blank" rel='noreferrer'>
+            <a href="https://github.com/Sam-Clark1/" className="text-1text hover:text-accent" target="_blank" rel='noreferrer'>
                     <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemText sx={{color: '#FFFFFF'}} primary={'GitHub'} />

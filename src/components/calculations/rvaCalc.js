@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { TextField, Button, TextareaAutosize, Alert } from "@mui/material";
 import { rvaEndPoint } from "../../utils/rvaEndPoint";
 import FavoriteButton from "../FavoriteButton";
-export default function RVACalc(props) {
+export default function RvaCalc(props) {
     const {userFavorites, setUserFavorites} = props;
     const [calcName, setCalcName] = useState('RVA Endpoint Viscosity');
 

@@ -22,7 +22,7 @@ export default function SignUp() {
       await AuthService.register(username, email, password).then(
         (response) => {
           console.log(response.data.message);
-          navigate('lab-assistant/login');
+          navigate('/login');
           window.location.reload();
         },
         (error) => {

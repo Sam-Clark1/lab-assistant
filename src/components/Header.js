@@ -9,9 +9,9 @@ import AuthService from '../api/auth.service';
 import event from "../api/event";
 
 const navigation = [
-  { name: 'Home', href: 'lab-assistant/' },
-  { name: 'Calculations', href: 'lab-assistant/calculations'},
-  { name: 'About', href: 'lab-assistant/about' },
+  { name: 'Home', href: '/' },
+  { name: 'Calculations', href: '/calculations'},
+  { name: 'About', href: '/about' },
 ]
 
 export default function Header(props) {
@@ -76,24 +76,24 @@ export default function Header(props) {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {currentUser ? 
-                    <a href='lab-assistant/' className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block' onClick={logOut}>
+                    <a href='/' className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block' onClick={logOut}>
                             Log Out
                     </a>
                   :
                   <>
-                    <Link to={'lab-assistant/login'}>
+                    <Link to={'/login'}>
                       <div className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block'>
                           Login
                       </div>
                     </Link>
-                    <Link to={'lab-assistant/signup'}>
+                    <Link to={'/signup'}>
                       <div className='text-1text hover:bg-card mr-3 px-3 py-2 rounded-md text-lg font-medium hidden md:block'>
                             Sign Up
                       </div>
                     </Link>
                   </>
                   }
-                  <a href="https://github.com/Sam-Clark1/lab-assistant" className="text-1text hover:text-accent hidden lg:block" target="_blank" rel='noreferrer'>
+                  <a href="https://github.com/Sam-Clark1/" className="text-1text hover:text-accent hidden lg:block" target="_blank" rel='noreferrer'>
                     <GitHubIcon sx={{fontSize:'2.5rem', }} />
                   </a>
                   {currentUser &&

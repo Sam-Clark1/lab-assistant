@@ -21,7 +21,7 @@ export default function Login() {
     if (username.length > 0 && password.length > 0) {
       await AuthService.login(username, password).then(
         () => {
-          navigate('lab-assistant/');
+          navigate('/');
           window.location.reload();
         },
         (error) => {
