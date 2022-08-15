@@ -1,6 +1,6 @@
 {
   "homepage": "http://sam-clark1.github.io/",
-  "name": "",
+  "name": "lab-assistant",
   "version": "0.1.0",
   "dependencies": {
     "@emotion/react": "^11.9.3",
